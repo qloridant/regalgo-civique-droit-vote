@@ -1,0 +1,90 @@
+{
+  "@context": {
+    "cprmv": "https://standaarden.open-regels.nl/standards/cprmv/0.4.0/",
+    "cpsv": "http://purl.org/vocab/cpsv#",
+    "cv":   "http://data.europa.eu/m8g/",
+    "dct":  "http://purl.org/dc/terms/"
+  },
+  "@id":    "https://regles.gouv.fr/algo/civique/droit-vote/v1",
+  "@type":  "cprmv:DecisionModel",
+  "dct:title":      "Droit de vote en France",
+  "dct:identifier": "civique.droit-vote.v1",
+  "dct:version":    "1.0.0",
+  "cprmv:isBasedOn": {
+    "@id":          "https://www.legifrance.gouv.fr/codes/id/LEGITEXT000006070239/",
+    "dct:title":    "Code électoral",
+    "dct:coverage": "Art. L.2, L.5, L.6, L.7, L.O. 227-1 à L.O. 227-6"
+  },
+  "cprmv:isAlsoBasedOn": {
+    "@id":       "https://www.legifrance.gouv.fr/loda/article_lc/LEGIARTI000006527438/",
+    "dct:title": "Constitution du 4 octobre 1958",
+    "dct:coverage": "Art. 88-3"
+  },
+  "cv:hasCompetentAuthority": {
+    "dct:title": "Ministère de l'Intérieur"
+  },
+  "cprmv:method":    ["cprmv:FormalisationMethod", "cprmv:CodificationMethod"],
+  "cprmv:validFrom": "2024-01-01",
+  "cprmv:hasPart": [
+    {
+      "@type":             "cprmv:Rule",
+      "dct:identifier":    "nationalite_francaise",
+      "cprmv:definition":  "Possède la nationalité française",
+      "cprmv:sourceQuote": "Art. L.2",
+      "type": "bool"
+    },
+    {
+      "@type":             "cprmv:Rule",
+      "dct:identifier":    "age",
+      "cprmv:definition":  "Âge de la personne en années",
+      "cprmv:sourceQuote": "Art. L.3",
+      "type": "int",
+      "unit": "années"
+    },
+    {
+      "@type":             "cprmv:Rule",
+      "dct:identifier":    "capacite_civique",
+      "cprmv:definition":  "Non privé de ses droits civiques",
+      "cprmv:sourceQuote": "Art. L.5, L.6",
+      "type": "bool"
+    },
+    {
+      "@type":             "cprmv:Rule",
+      "dct:identifier":    "inscrit_listes_electorales",
+      "cprmv:definition":  "Inscrit sur les listes électorales",
+      "cprmv:sourceQuote": "Art. L.7, L.O. 227-1",
+      "type": "bool"
+    },
+    {
+      "@type":             "cprmv:Rule",
+      "dct:identifier":    "citoyennete_ue",
+      "cprmv:definition":  "Possède la citoyenneté d'un État membre de l'Union européenne",
+      "cprmv:sourceQuote": "Art. L.O. 227-1",
+      "cprmv:condition":   "Applicable uniquement pour les élections municipales",
+      "type": "bool"
+    },
+    {
+      "@type":             "cprmv:Rule",
+      "dct:identifier":    "domicile_france",
+      "cprmv:definition":  "Domicilié en France",
+      "cprmv:sourceQuote": "Art. L.O. 227-1",
+      "cprmv:condition":   "Applicable uniquement pour les élections municipales",
+      "type": "bool"
+    },
+    {
+      "@type":             "cprmv:ContextVariable",
+      "dct:identifier":    "type_election",
+      "cprmv:definition":  "Type d'élection : 'nationale' (défaut) ou 'municipale'",
+      "cprmv:sourceQuote": "Art. 88-3 C°, Art. L.O. 227-1",
+      "type": "string",
+      "enum": ["nationale", "municipale"]
+    }
+  ],
+  "cpsv:produces": {
+    "@type":            "cprmv:Rule",
+    "dct:identifier":   "peut_voter",
+    "cprmv:definition": "La personne a le droit de voter",
+    "type": "bool"
+  },
+  "dct:subject": ["election", "civique", "droit-vote", "code-electoral"]
+}
