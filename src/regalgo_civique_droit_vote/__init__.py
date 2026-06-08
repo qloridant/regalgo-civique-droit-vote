@@ -1,3 +1,5 @@
-from .algorithm import DroitVoteAlgorithm, AlgoInput, AlgoResult, PersonInput
+from .algorithm import DroitVoteAlgorithm
 
-__all__ = ["DroitVoteAlgorithm", "AlgoInput", "AlgoResult", "PersonInput"]
+__all__ = [
+    "DroitVoteAlgorithm", "validate_person_input", 
+]

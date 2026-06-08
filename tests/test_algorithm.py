@@ -1,6 +1,7 @@
 import pytest
 from datetime import date, timedelta
-from regalgo_civique_droit_vote import DroitVoteAlgorithm, AlgoInput, PersonInput
+from regalgo_civique_droit_vote import DroitVoteAlgorithm
+from regalgo import AlgoInput, PersonInput
 
 
 ELECTEUR_VALIDE = {

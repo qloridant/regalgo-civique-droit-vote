@@ -1,16 +1,18 @@
 [tool.poetry]
 name = "regalgo-civique-droit-vote"
-version = "1.0.0"
+version = "1.0.4"
 description = "Droit de vote en France — Code électoral Art. L.2"
 packages = [{include = "regalgo_civique_droit_vote", from = "src"}]
-
-
+readme='README.md'
 
 [tool.poetry.dependencies]
 python = "^3.10"
-
-
+regalgo = "^0.0"
 
 [build-system]
 requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
+
+[[tool.poetry.source]]
+name = "test"
+url = "https://test.pypi.org/simple/"
